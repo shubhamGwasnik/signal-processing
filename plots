@@ -1,0 +1,15 @@
+
+import plotly.express as px
+
+
+
+def plot(df):
+    try:
+        fig = px.line(df, x="Timestamp", y=["sig_values","kurt_ha","kurt_a"], title=f'cu_07 VTach')
+        # fig = px.scatter(df, x="Timestamp", y="FSR_Values_conf", color="FSR_Values_conf")
+        fig.show()
+
+        with open(f'/home/shubham.wasnik/Downloads/shubham/Arrhythmia/plot/plott.html','w') as f:
+            f.write(fig.to_html())
+    except Exception as e:
+        print(e)
